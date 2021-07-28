@@ -1,0 +1,13 @@
+### presto
+GEt http://localhost:3000/presto/1
+
+
+### presto file
+GET http://localhost:3000/presto-file
+
+###lento
+GET http://localhost:3000/lento
+
+
+###
+GET http://localhost:3000

@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+
+  presto:
+    image: presto
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on: 
+      - trinodb
+    environment:
+      NODE_ENV: production
+    links: 
+      - "trinodb:database"
+    ports:
+      - 3000:3000
+    volumes: 
+      - .:/usr/src/app
+
+  trinodb:
+    image: trinodb/trino
+    ports:
+      - 8080:8080
+    volumes: 
+      - data:/data/db
+    expose: 
+      - 8080
+  
+volumes: 
+  data:
